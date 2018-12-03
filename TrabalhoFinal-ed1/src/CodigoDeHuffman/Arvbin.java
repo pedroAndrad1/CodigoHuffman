@@ -44,21 +44,19 @@ public class Arvbin
 	}
 	/* Novo método para imprimir os códigos de Huffman de cada símbolo na árvore. */
 	public void mostraCodigo() {
-		mostraCodigos(this,"");//Passando o nó raiz como parâmetro.
+		mostraCodigos("");
 	}
-	private void mostraCodigos(Arvbin no, String codigo) {
+	private void mostraCodigos(String codigo) {
 		
 		if(esq == null && dir == null) {
-			System.out.println("Símbolo: " + no.simbolo + "            Código: " + codigo);
+			System.out.println("Símbolo: " + this.simbolo + "            Código: " + codigo);
 		}
 		
-		char c = no.simbolo;
-		
 		if(esq != null)
-			mostraCodigos(this.esq, codigo + "0");
+			esq.mostraCodigos(codigo + "0");
 		
 		if(dir != null)
-			mostraCodigos(this.dir, codigo + "1");
+			dir.mostraCodigos(codigo + "1");
 	}
 	
 	/*public Map<Character,String> mostraCodigo()
