@@ -18,7 +18,10 @@ public class BinMinHeap
 										 //desejados.
 		tam = tamanho;
 	}
-	
+	/**
+	 * Teste e so número de elmentos da Heap é igual a zero. Se sim, a Heap está vazia.
+	 * @return
+	 */
 	/* Testa se a heap está vazia. */
 	public boolean vazia()
 	{
@@ -27,7 +30,11 @@ public class BinMinHeap
 		else
 			return false;
 	}
-	
+	/**
+	 * Reogarniza os elementos de uma Heap para manter sua estrutura. Este método é chamado assim que é removido o menor valor 
+	 * contido na Heap.
+	 * @param i
+	 */
 	/* Refaz a condição de heap (heapify). */
 	private void refaz(int i)
 	{	
@@ -70,7 +77,10 @@ public class BinMinHeap
 		for( int i = n / 2; i > 0; i-- )
 			refaz(i);
 	}
-
+	/**
+	 * Uma interface com o usário para ele inserir os elementos da Heap, suas frequências e seus simbolos. Esse método se
+	 * certica que a Heap será totalmente preechida.
+	 */
 	/* Lê dados via teclado e insere na heap. */
 	public void carregaDados()
 	{
@@ -100,6 +110,11 @@ public class BinMinHeap
 	}
 
 	/* Executa o algoritmo de Huffman. */
+	/**
+	 * Aplica o algoritmo de Huffman aos elementos contidos na Heap. Ao final deste método, a Heap conterá apenas um elemento
+	 * e este elemento será a raiz da árovore de Huffman. A qual usaremos para achar o código de cada elemento originalmente 
+	 * inserido na Heap..
+	 */
 	public void aplicaHuffman()
 	{	
 		//O código termina quando tiver apenas um elemento na heap.
@@ -120,19 +135,17 @@ public class BinMinHeap
 	}
 	
 	/* Chama o método mostra códigos da classe Arvbin. */
-	
+	/**
+	 * Mostra o código dos elementos contidos na Heap. Chamando a função de decodificação da raiz da árvore de Huffman.
+	 */
 	public void mostraCodigos() {
 		vetor[1].mostraCodigo();
 	}
-	/*public void mostraCodigos()
-	{	
-		Map<Character, String> tabela = vetor[1].mostraCodigo();
-		
-		for(int i = 0; i < simbolos.size(); i++) {
-			System.out.println("Símbolo: " + simbolos.get(i) + "           Decodificação: " + tabela.get(simbolos.get(i)));
-		}
-	}*/
 	/* Insere x na heap. */
+	/**
+	 * Insere um elemento na Heap e reorganiza os elementos para manter a estrutura.
+	 * @param x
+	 */
 	public void insere(Arvbin x)
 	{
 		if (tam == n){
@@ -157,6 +170,12 @@ public class BinMinHeap
 	}
 	
 	/* Remove e retorna o menor item. */
+	/**
+	 * Remove o menor elemento da Heap, que por construção será sempre o primeiro, e chama o método refaz() para reorganizar os
+	 * elementos e manter a estrutura da Heap.
+	 * 
+	 * @return Arvbin
+	 */
 	public Arvbin removeMin()
 	{
 		Arvbin min;
@@ -175,6 +194,9 @@ public class BinMinHeap
 	}
 	
 	/* Imprime o conteúdo da heap. */
+	/**
+	 * Imprime o contéudo da Heap no formato da árvore a qual ela representa.
+	 */
 	public void imprime()
 	{
 		vetor[1].mostra();

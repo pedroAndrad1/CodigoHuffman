@@ -11,15 +11,18 @@ public class Main
 		
 		System.out.println("Quantos simbolos?");
 		n = scanner.nextInt();
-		
+	
 		BinMinHeap heap = new BinMinHeap(n);
 		heap.carregaDados();
+		long t0 = System.currentTimeMillis();
 		heap.aplicaHuffman();
 		heap.imprime();
 		System.out.println("");
 		heap.mostraCodigos();
 		
-		
+	
+	
+	System.out.println("tempo =  " + (System.currentTimeMillis() - t0)) ;
 		scanner.close();
 	}
 }
